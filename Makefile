@@ -24,7 +24,7 @@ LDFLAGS = -ldflags "-X stet/cli/internal/version.Version=$(VERSION)"
 STET := ./cli/cmd/stet
 STET_SRC := $(shell find $(STET) -name '*.go' -not -name '*_test.go')
 
-.PHONY: build build-all clean test coverage release check
+.PHONY: build build-all clean test coverage release check doctor setup prerequisites
 
 build: bin/stet
 
@@ -63,8 +63,11 @@ clean:
 test:
 	go test ./cli/... -count=1
 
-check: bin/stet
+check doctor: | bin/stet prerequisites
 	bin/stet doctor
+
+setup prerequisites:
+	@bash scripts/install-prerequisites.sh
 
 coverage: coverage.out
 	@bash scripts/check-coverage.sh coverage.out
