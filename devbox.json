@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
+  "packages": [
+    "go@1.22",
+    "nodejs@22"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'stet dev environment ready - Go '$(go version | awk '{print $3}')' / Node '$(node --version)"
+    ]
+  }
+}

@@ -32,6 +32,7 @@ go.work.sum
 
 # env file
 .env
+.envrc.local
 
 # Editor/IDE (uncomment to ignore; leave unignored to share .vscode/ for dev container)
 .idea/
@@ -43,6 +44,9 @@ go.work.sum
 
 # Project: review worktrees (see docs/PRD.md)
 .review/
+
+# Devbox
+.devbox/
 
 # OS
 .DS_Store
